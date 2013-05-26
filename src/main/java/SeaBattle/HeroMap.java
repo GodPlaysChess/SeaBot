@@ -22,7 +22,6 @@ public final class HeroMap extends Map {
         return ships;
     }
 
-
     public void printString() {
         System.out.println("********************************");
         System.out.println("*                              *");

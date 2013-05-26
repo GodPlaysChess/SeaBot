@@ -41,7 +41,6 @@ public class Logic {
                     // String tempInLog = client.getData();
 
                     if (game.isMyTurn()) {
-                        System.out.println(game.botFireToServer());              //log
                         client.sendData(game.botFireToServer());
                         game.handleFireResponse(client.getData());                      //need to encount only opponents data
                         game.changeTurn();
@@ -71,6 +70,7 @@ public class Logic {
                             startGame = false;
                             game.player.getVillain().printString();
                             game.getHeroMap().printString();
+                            game.player.printProbabilityMap();
                         }
 
                     }

@@ -6,7 +6,6 @@ public class Game {
     public GameBot player;
 
     private HeroMap heroMap;
-   // private VillainMap Villain;
     private boolean myTurn = false;
     private GameState gameState;
 
@@ -25,7 +24,6 @@ public class Game {
     public Game() {
         player = new GameBot();
         heroMap = new HeroMap(player.initPositions());
-//        Villain = new VillainMap();
         gameState = GameState.UNDEFINED;
     }
 
@@ -33,10 +31,6 @@ public class Game {
     //fire to the server, get the response
     public String botFireToServer() {
         return fireToServer(player.fire());
-    }
-
-    public String fireToServer(int x, int y) {
-        return "shoot " + x + " " + y;
     }
 
     public String fireToServer(int[] xy) {
@@ -47,7 +41,7 @@ public class Game {
     public void handleFireResponse(String response) {
         StringTokenizer ST = new StringTokenizer(response);
         if (ST.nextToken().equals("result")) {
-            player.getVillain().openField(ST.nextToken(), ST.nextToken(), ST.nextToken());
+            player.openField(ST.nextToken(), ST.nextToken(), ST.nextToken());
         }
         if (response.endsWith("I LOST")) {     //<---COULD NOT PARSE
             gameState = GameState.WIN;
@@ -56,7 +50,6 @@ public class Game {
 
     //getting the result of the villain fire
     public String handleVillainFire(String villainFire) {
-        //  String result = "wrong input";
         StringTokenizer ST = new StringTokenizer(villainFire);
 
         if (ST.nextToken().equals("shoot")) {
@@ -85,8 +78,6 @@ public class Game {
         } else return heroMap.checkFieldString(x, y);
     }
 
-
-
     public HeroMap getHeroMap() {
         return heroMap;
     }
@@ -94,6 +85,4 @@ public class Game {
     public GameState getGameState() {
         return gameState;
     }
-
-
 }
