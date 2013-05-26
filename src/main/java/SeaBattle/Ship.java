@@ -23,7 +23,7 @@ public class Ship {
                 if (this.isDestroyed()) {
                     return "destroyed";
                 } else return "hit";
-            } /*else continue*/;
+            }
         }
         return "missed";
     }

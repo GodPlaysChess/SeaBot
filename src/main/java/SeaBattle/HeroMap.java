@@ -11,14 +11,14 @@ public final class HeroMap extends Map {
                 fields[i][j] = WATER;
             }
         }
-        for (Ship S : ships){
-            for (ShipPart SP : S.getParts()){
-                fields[SP.getX()][SP.getY()] = SHIP;
+        for (Ship S : ships) {
+            for (ShipPart SP : S.getParts()) {
+                fields[SP.getX()][SP.getY()] = DESTROYED_SHIP;
             }
         }
     }
 
-    public Ship[] getShips(){
+    public Ship[] getShips() {
         return ships;
     }
 

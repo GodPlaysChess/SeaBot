@@ -2,16 +2,17 @@ package SeaBattle;
 
 public abstract class Map {
 
-    public static final char SHIP = 'X';
+    public static final char SHIP = 'x';
+    public static final char DESTROYED_SHIP = 'X';
     public static final int WATER = '-';
-    public static final int UNKNOWN = 0;
+    public static final int UNKNOWN = 'O';
     protected char[][] fields = new char[10][10];
     protected Ship[] ships = new Ship[10];
 
     public Map() {
         for (int i = 0; i < 10; i++) {
             for (int j = 0; j < 10; j++)
-                fields[i][j] = WATER;
+                fields[i][j] = UNKNOWN;
         }
     }
 

@@ -52,8 +52,8 @@ public class Logic {
                         }
                         if (game.getGameState()!= Game.GameState.UNDEFINED) {
                             startGame = false;
-                            game.getVillain().printString();
-                            game.getHero().printString();
+                            game.player.getVillain().printString();
+                            game.getHeroMap().printString();
                         }
 
                     } else if (!game.isMyTurn()) {
@@ -69,8 +69,8 @@ public class Logic {
                         }
                         if (game.getGameState()!= Game.GameState.UNDEFINED) {
                             startGame = false;
-                            game.getVillain().printString();
-                            game.getHero().printString();
+                            game.player.getVillain().printString();
+                            game.getHeroMap().printString();
                         }
 
                     }

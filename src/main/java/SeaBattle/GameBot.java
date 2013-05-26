@@ -2,9 +2,12 @@ package SeaBattle;
 
 public class GameBot {
 
+    private VillainMap villainMap;
   //  private HeroMap Hero;
-    public GameBot() {
 
+
+    public GameBot() {
+        villainMap = new VillainMap();
     }
 
     public int[] fire() {
@@ -30,8 +33,12 @@ public class GameBot {
         return positions;
     }
 
-    public int[] findVictim(){
+  /*  public int[] findVictim(){
 
+    }
+*/
+    public VillainMap getVillain() {
+        return villainMap;
     }
 
 }
