@@ -27,7 +27,6 @@ public class Game {
         gameState = GameState.UNDEFINED;
     }
 
-
     //fire to the server, get the response
     public String botFireToServer() {
         return fireToServer(player.fire());

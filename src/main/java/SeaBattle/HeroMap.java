@@ -2,6 +2,10 @@ package SeaBattle;
 
 public final class HeroMap extends Map {
 
+    public HeroMap(){
+        super();
+    }
+
     public HeroMap(Ship[] shipsPos) {
         ships = shipsPos;            /*placing the ships*/
 
@@ -20,6 +24,17 @@ public final class HeroMap extends Map {
 
     public Ship[] getShips() {
         return ships;
+    }
+
+    public boolean couldPlaceShipHere(int x, int y) {
+        for (int i = -1; i < 2; i++) {
+            for (int j = -1; j < 2; j++) {
+                if (isShipThere(x + i, y + j)) {
+                    return false;
+                }
+            }
+        }
+        return true;
     }
 
     public void printString() {

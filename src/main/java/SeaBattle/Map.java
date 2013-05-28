@@ -17,11 +17,26 @@ public abstract class Map {
     }
 
     public String checkFieldString(String x, String y) {
-        for (Ship S :ships){
+        for (Ship S : ships) {
             if (!S.checkHit(Integer.parseInt(x), Integer.parseInt(y)).equals("missed"))
                 return S.checkHit(Integer.parseInt(x), Integer.parseInt(y));
         }
         return "missed";
+    }
+
+
+    public boolean isShipThere(int x, int y) {
+        if (x >= 0 && x < 10 && y >= 0 && y < 10) {
+            return (fields[x][y] == Map.SHIP ||
+                    fields[x][y] == Map.DESTROYED_SHIP);
+        }
+        return false;
+    }
+
+    public void addShipUnsafe(Ship ship) {
+        for (ShipPart shipPart : ship.getParts()) {
+            fields[shipPart.getX()][shipPart.getY()] = SHIP;
+        }
     }
 
     public void printString() {
